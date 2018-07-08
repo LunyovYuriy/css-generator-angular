@@ -1,0 +1,29 @@
+<div class="col-6 offset-3">
+  <section [ngStyle]="{'text-shadow':getTextShadow()}">
+    <form class="col-12">
+      <label>
+        <span>Horizontal length:</span>
+        <input type="number" [(ngModel)]="horLength" name="horLength"> px
+      </label>
+      <br>
+      <label>
+        <span>Vertical length:</span>
+        <input type="number" [(ngModel)]="vertLength" name="vertLength"> px
+      </label>
+      <br>
+      <label>
+        <span>Blur-radius:</span>
+        <input type="number" [(ngModel)]="blurRad" name="blurRad"> px
+      </label>
+      <br>
+      <label>
+        <span>Shadow color:</span>
+        <input type="text" [(colorPicker)]="shadowColor" (colorPickerChange)="shadowColor=$event" [value]="shadowColor">
+      </label>
+
+    </form>
+    <p class="alert alert-light" *ngIf="horLength || vertLength">
+      text-shadow: {{getTextShadow()}};
+    </p>
+  </section>
+</div>

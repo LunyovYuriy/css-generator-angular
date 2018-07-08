@@ -1,0 +1,24 @@
+<div class="col-6 offset-3">
+  <section [ngStyle]="{border: getBorder(selectedValue)}">
+    <form class="col-12">
+      <label><span>Width:</span>
+        <input type="number" [(ngModel)]="borderWidth" name="border" min="1"> px
+      </label><br>
+      <label><span>Color:</span>
+        <input type="text" 
+          [(colorPicker)]="borderColor" 
+          (colorPickerChange)="borderColor=$event"
+          [value]="borderColor"
+        >
+      </label><br>
+      <span>Style:</span>
+      <select name="border-style" id="bStyle" [(ngModel)]="selectedValue">
+        <option *ngFor="let bStyle of borderStyle" [value]="bStyle">
+          {{bStyle}}
+        </option>
+      </select>
+    </form>
+
+    <p class="alert alert-light" *ngIf="borderWidth">border: {{getBorder(selectedValue)}};</p>
+  </section>
+</div>

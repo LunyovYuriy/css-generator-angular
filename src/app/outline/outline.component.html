@@ -1,0 +1,32 @@
+<div class="col-6 offset-3">
+  <section [ngStyle]="{outline: getOutline(selectedStyle), 'outline-offset': outlineOffset + 'px'}">
+    <form class="col-12">
+      <label>
+        <span>Outline thickness:</span>
+        <input type="number" [(ngModel)]="outlineThickness" name="thickness" min="1"> px
+      </label>
+      <br>
+      <span>Outline:</span>
+      <select name="outline-style" [(ngModel)]="selectedStyle">
+        <option *ngFor="let oStyle of outlineStyle" [value]="oStyle">
+          {{oStyle}}
+        </option>
+      </select><br>
+      <label>
+        <span>Color:</span>
+        <input type="text" [(colorPicker)]="outlineColor" (colorPickerChange)="outlineColor=$event" [value]="outlineColor">
+      </label>
+      <br>
+      <label>
+        <span>Offset:</span>
+        <input type="number" [(ngModel)]="outlineOffset" name="outlineOffset"> px
+      </label>
+    </form>
+
+    <p class="alert alert-light" *ngIf="outlineThickness">
+      outline: {{getOutline(selectedStyle)}}; <br>
+      outline-offset: {{outlineOffset}}px;
+    </p>
+    
+  </section>
+</div>

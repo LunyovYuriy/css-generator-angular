@@ -1,0 +1,32 @@
+<div class="col-6 offset-3">
+  <section>
+    <form class="col-12">
+      <label>
+        <span>Scale:</span>
+        <input type="number" [(ngModel)]="scale" name="scale">
+      </label><br>
+      <label>
+        <span>Rotate:</span> 
+        <input type="number" [(ngModel)]="rotate" name="rotate"> deg
+      </label><br>
+      <label>
+        <span>Skew-X:</span>
+        <input type="number" [(ngModel)]="skewX" name="skewX"> deg
+      </label><br>
+      <label>
+        <span>Skew-Y:</span>
+        <input type="number" [(ngModel)]="skewY" name="skewY"> deg
+      </label>
+    </form>
+    <div class="stand" [ngStyle]="{transform: getTransform()}">
+      Watch me!
+    </div>
+    <p class="alert alert-light" *ngIf="scale || rotate || skewX || skewY">
+      -moz-transform: {{getTransform()}}; <br>
+      -webkit-transform: {{getTransform()}}; <br>
+      -o-transform: {{getTransform()}}; <br>
+      -ms-transform: {{getTransform()}}; <br>
+      transform: {{getTransform()}};
+    </p>
+  </section>
+</div>

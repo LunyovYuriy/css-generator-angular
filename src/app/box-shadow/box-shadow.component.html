@@ -1,0 +1,35 @@
+<div class="col-6 offset-3">
+  <section [ngStyle]="{boxShadow: getBoxShadow()}">
+    <form class="col-12">
+      <span>Inset:</span>
+      <select name="border-style" [(ngModel)]="selectedInset">
+        <option value="no">No</option>
+        <option value="inset">Inset</option>
+      </select><br>
+      <label><span>Horizontal left:</span>
+        <input type="number" name="horLength" [(ngModel)]="horLength" min="0"> px
+      </label><br>
+      <label><span>Vertical left:</span>
+        <input type="number" name="vertLength" [(ngModel)]="vertLength" min="0"> px
+      </label><br>
+      <label><span>Blur-radius:</span>
+        <input type="number" name="blurRad" [(ngModel)]="blurRad" min="0"> px
+      </label><br>
+      <label><span>Spread:</span>
+        <input type="number" name="spread" [(ngModel)]="spread" min="0"> px
+      </label><br>
+      <label><span>Color:</span>
+        <input type="text" 
+          [(colorPicker)]="boxShadowColor" 
+          (colorPickerChange)="boxShadowColor=$event"
+          [value]="boxShadowColor"
+        >
+      </label><br>
+    </form>
+
+    <p class="alert alert-light" *ngIf="horLength || vertLength">
+        --webkit-box-shadow: {{getBoxShadow()}};<br>
+        box-shadow: {{getBoxShadow()}};
+    </p>
+  </section>
+</div>

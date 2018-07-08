@@ -1,0 +1,11 @@
+.stand {
+    background: #fff;
+    width: 180px;
+    height: 70px;
+    position: absolute;
+    top: 30px;
+    right: 45px;
+    text-align: center;
+    line-height: 70px;
+    border: 1px solid #90CAF9;
+}

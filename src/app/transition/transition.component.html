@@ -1,0 +1,31 @@
+<div class="col-6 offset-3">
+  <section>
+    <form class="col-12">
+      <span>Property:</span>
+      <select name="prop" [(ngModel)]="selectedProp">
+        <option *ngFor="let prop of properties" [value]="prop">
+          {{prop}}
+        </option>
+      </select><br>
+      <label>
+        <span>Duration:</span>
+        <input type="number" [(ngModel)]="duration" name="duration"> s
+      </label><br>
+      <span>Function:</span>
+      <select name="func" [(ngModel)]="selectedFunc">
+        <option *ngFor="let func of tFunc" [value]="func">
+          {{func}}
+        </option>
+      </select>
+    </form>
+
+    <div class="stand" [ngStyle]="{transition: getTransition()}">Hover me!</div>
+    <p class="alert alert-light" *ngIf="duration">
+      -moz-transition: {{getTransition()}}; <br>
+      -webkit-transition: {{getTransition()}}; <br>
+      -o-transition: {{getTransition()}}; <br>
+      -ms-transition: {{getTransition()}}; <br>
+      transition: {{getTransition()}};
+    </p>
+  </section>
+</div>

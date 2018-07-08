@@ -1,0 +1,28 @@
+<div class="col-6 offset-3">
+  <section [ngStyle]="{borderRadius: getBorderRadius()}">
+    <form class="col-12">
+      <label><span>Top-Left:</span>
+        <input type="number" [(ngModel)]="topLeft" name="topLeft" min="0"> px
+      </label><br>
+      <hr>
+      <label><span>Top-Right:</span>
+        <input type="number" [(ngModel)]="topRight" name="topRight" min="0"> px
+      </label><br>
+      <label><span>Bottom-Left:</span>
+        <input type="number" [(ngModel)]="bottomLeft" name="bottomLeft" min="0"> px
+      </label><br>
+      <label><span>Bottom-Right:</span>
+        <input type="number" [(ngModel)]="bottomRight" name="bottomRight" min="0"> px
+      </label><br>
+    </form>
+
+    <p class="alert alert-light" *ngIf="topRight || bottomRight || bottomLeft">
+      border-radius: {{getBorderRadius()}}; <br>
+      -webkit-border-radius: {{getBorderRadius()}};
+    </p>
+    <p class="alert alert-light" *ngIf="topLeft && !topRight && !bottomRight && !bottomLeft">
+      border-radius: {{getBorderRadius()}};<br>
+      -webkit-border-radius: {{getBorderRadius()}};
+    </p>
+  </section>
+</div>

@@ -1,0 +1,17 @@
+* {
+    text-align: center;
+}
+
+.nav-link {
+    border-radius: 0;
+    background: #1E88E5;
+    color: #fff;
+}
+.nav-link:hover {
+    background: #1565C0;
+    transition: .3s;
+}
+.nav-link.active {
+    border-radius: 0;
+    background: #1565C0;
+}
